@@ -1,2 +1,2 @@
 # search
-Clickette's search frontend.
+Clickette's search frontend. [WIP]
