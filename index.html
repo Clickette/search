@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickette</title>
+    <link rel="icon" type="image/png" href="image/favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://clickette.instatus.com/en/2c5eddda/widget/script.js"></script>
+    <style>
+        body {
+          background: linear-gradient(to bottom, #1D1A27, #15131C);
+        }
+        .click {
+        color: #575071;
+    }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-between min-h-screen text-white">
+    <div class="flex-grow flex flex-col items-center justify-center">
+        <div class="mb-8">
+            <img src="image/logo.svg" alt="Logo" class="mx-auto w-96">
+        </div>
+        <form id="searchForm" class="flex items-center justify-center w-full max-w-lg mx-auto shadow hover:shadow-[0_0px_60px_20px_rgba(255,94,0,0.3)">
+            <input type="text" id="searchInput" class="border border-orange-500 bg-transparent text-white placeholder-white flex-1 p-3 rounded-l-md focus:outline-none w-[600px]" placeholder="Type to Search">
+            <button type="submit" class="p-3 border transition ease-in-out shadow hover:shadow-[0_0px_60px_20px_rgba(255,94,0,0.3)] border-orange-500 bg-transparent text-white rounded-r-md hover:bg-orange-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
+        </form>
+    </div>
+    <div class="flex flex-col items-center mb-4 w-full">
+        <div class="flex justify-center items-center w-full mb-2">
+            <!-- lt links -->
+            <div class="text-center mr-4">
+                <p><a style="color: #575071;" href="https://clickette.net/contact" class="transition ease-in-out shadow hover:drop-shadow-[0_2px_0px_rgba(87,80,113,0.25)]">Contact Us</a></p>
+                <p><a style="color: #575071;" href="https://clickette.net" class="transition ease-in-out shadow hover:drop-shadow-[0_2px_0px_rgba(87,80,113,0.25)]">Clickette Vault</a></p>
+            </div>
+            <!-- footr image -->
+            <img src="image/logo2.svg" alt="Bottom Image" class="transition ease-in-out shadow hover:drop-shadow-[0_3px_0px_rgba(87,80,113,0.25)] mx-4 w-24">
+            <!-- rt links -->
+            <div class="text-center ml-4">
+                <p><a style="color: #575071;" href="https://clickette.net/tos" class="transition ease-in-out shadow hover:drop-shadow-[0_2px_0px_rgba(87,80,113,0.25)]">Privacy Policy</a></p>
+                <p><a style="color: #575071;" href="https://clickette.net/privacy" class="transition ease-in-out shadow hover:drop-shadow-[0_2px_0px_rgba(87,80,113,0.25)]">Terms of Service</a></p>
+            </div>
+        </div>
+        <!-- footer Text -->
+        <p style="color: #575071;" class="text-center text-sm mt-2">Your searches are completely private. Powered by <a style="color: #6A618A;" href="https://github.com/Clickette" class="transition ease-in-out shadow hover:drop-shadow-[0_2px_0px_rgba(87,80,113,0.25)]">Open Source</a>.</p>
+    </div>
+    <script>
+        // uri encoding thingy
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                query = query.split(' ').join('+');
+                query = encodeURIComponent(query).replace(/%20/g, '+'); 
+                window.location.href = `/search?${query}`;
+            }
+        });
+    </script>
+</body>
+</html>
