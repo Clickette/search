@@ -18,4 +18,4 @@ This is however only a simple summary, it is recommended that you read the licen
 
 
 ---
-##### © ・ Clickette & hamhim ・ Clickette is a part of hamhim ・ All rights reserved.
+##### © ・ Team Clickette ・ Clickette is a part of hamhim ・ All rights reserved.
